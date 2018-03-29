@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/branchard/jokes/issues"
   },
-  "homepage": "https://github.com/branchard/jokes#readme"
+  "homepage": "https://github.com/branchard/jokes#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
 }

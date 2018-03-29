@@ -1,0 +1,46 @@
+doctype html
+html
+	head
+		title Ta mère
+		link(href='https://fonts.googleapis.com/css?family=Nunito', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Noto+Serif', rel='stylesheet')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+		style.
+			body {
+			margin: 0;
+			}
+			blockquote {
+			font-family: 'Nunito', sans-serif;
+			font-size: 18px;
+			font-style: italic;
+			width: 500px;
+			margin: 0.25em 0;
+			padding: 0.35em 40px;
+			line-height: 1.45;
+			position: relative;
+			color: #383838;
+			}
+			blockquote:before {
+			font-family: 'Noto Serif', serif;
+			display: block;
+			padding-left: 10px;
+			content: "\201C";
+			font-size: 80px;
+			position: absolute;
+			left: -20px;
+			top: -20px;
+			color: #7a7a7a;
+			}
+			blockquote cite {
+			color: #999999;
+			font-size: 14px;
+			display: block;
+			margin-top: 5px;
+			}
+			blockquote cite:before {
+			content: "\2014 \2009";
+			}
+	body
+		div(style='height: 100vh; display: flex;')
+			blockquote(style='margin: auto;')
+				p #{joke}
