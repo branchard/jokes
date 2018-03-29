@@ -2,6 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
+const AWS = require('aws-sdk');
+const Fs = require('fs');
+const Stream = require('stream')
 
 const PORT = process.env.PORT;
 
@@ -26,9 +29,12 @@ const JOKES = [
     "Ta mère est tellement grosse que pour la photographier, il faut un satellite."
 ];
 
+const polly = new AWS.Polly({signatureVersion: 'v4', region: 'eu-west-3'})
+
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '/views/'));
-//console.log(path.join(__dirname, '/views/'));
+
+app.use('/assets', express.static(path.join(__dirname + '/../assets')));
 
 app.get('/', function(req, res) {
     //res.send(JOKES[Math.floor(Math.random() * JOKES.length)]);
@@ -37,5 +43,32 @@ app.get('/', function(req, res) {
     })
 });
 
+app.get('/speech/:text', function(req, res) {
+    const text = req.params.text;
+
+    // if joke does not exist
+    if(!JOKES.includes(text)){
+        res.status(400).end();
+        return;
+    }
+
+    polly.synthesizeSpeech({
+        OutputFormat: 'mp3',
+        Text: text,
+        VoiceId: 'Celine'
+    }, (err, data) => {
+        if (err) {
+            res.status(400).send(err);
+        } else {
+            const bufferStream = new Stream.PassThrough();
+            bufferStream.end(new Buffer(data.AudioStream));
+            res.set({'Content-Type': 'audio/mpeg'});
+            bufferStream.on('error', bufferError => {
+                res.status(400).end();
+            });
+            bufferStream.pipe(res);
+        }
+    });
+});
 
 app.listen(PORT, () => console.log(`App listen port ${PORT}`));
