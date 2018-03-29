@@ -38,8 +38,10 @@ app.set('views', path.join(__dirname, '/views/'));
 app.use('/assets', express.static(path.join(__dirname + '/../assets')));
 
 app.get('/', function(req, res) {
+    let text = JOKES[Math.floor(Math.random() * JOKES.length)];
     res.render('index', {
-        joke: JOKES[Math.floor(Math.random() * JOKES.length)]
+        joke: text,
+        audioUrl: `/speech/${encodeURI(text)}`
     });
 });
 
