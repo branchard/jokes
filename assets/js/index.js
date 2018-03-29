@@ -1,6 +1,5 @@
-let text = document.querySelector('blockquote p').innerHTML;
 window.addEventListener('load', () => {
-    // noinspection JSUnresolvedVariable
+    let text = document.querySelector('blockquote p').innerHTML;
     let audioCtx = new(window.AudioContext || window.webkitAudioContext)();
     let xhr = new XMLHttpRequest();
     xhr.open('GET', `/speech/${encodeURI(text)}`);
@@ -12,13 +11,6 @@ window.addEventListener('load', () => {
             source.connect(audioCtx.destination);
             source.loop = false;
             source.start();
-
-            setTimeout(function() {
-                let t = document.createElement('p');
-                t.appendChild(document.createTextNode((new Date()).toLocaleString() + ': Sound played'));
-                document.querySelector('.output').appendChild(t);
-                playsound(audioBuffer);
-            }, 1000 + Math.random() * 2500);
         };
 
         audioCtx.decodeAudioData(xhr.response).then(playsound);
