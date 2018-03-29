@@ -1,8 +1,8 @@
 window.addEventListener('load', () => {
-    let text = document.querySelector('blockquote p').innerHTML;
+    let jokeId = document.querySelector('blockquote p').dataset.id;
     let audioCtx = new(window.AudioContext || window.webkitAudioContext)();
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', `/speech/${encodeURI(text)}`);
+    xhr.open('GET', `/speech/${jokeId}`);
     xhr.responseType = 'arraybuffer';
     xhr.addEventListener('load', () => {
         let playsound = (audioBuffer) => {
