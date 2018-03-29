@@ -29,7 +29,7 @@ const JOKES = [
     "Ta mère est tellement grosse que pour la photographier, il faut un satellite."
 ];
 
-const polly = new AWS.Polly({signatureVersion: 'v4', region: 'eu-west-1'});
+const polly = new AWS.Polly({signatureVersion: 'v4', region: 'eu-west-3'});
 const voiceIds = ['Mathieu', 'Celine'];
 
 app.set('view engine', 'pug');
