@@ -1,2 +1,2 @@
 # jokes
-A website made with express
+A website about "your mom jokes" made with express
