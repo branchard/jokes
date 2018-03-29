@@ -29,7 +29,8 @@ const JOKES = [
     "Ta mère est tellement grosse que pour la photographier, il faut un satellite."
 ];
 
-const polly = new AWS.Polly({signatureVersion: 'v4', region: 'eu-west-3'})
+const polly = new AWS.Polly({signatureVersion: 'v4', region: 'eu-west-3'});
+const voiceIds = ['Mathieu', 'Celine'];
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '/views/'));
@@ -37,10 +38,9 @@ app.set('views', path.join(__dirname, '/views/'));
 app.use('/assets', express.static(path.join(__dirname + '/../assets')));
 
 app.get('/', function(req, res) {
-    //res.send(JOKES[Math.floor(Math.random() * JOKES.length)]);
     res.render('index', {
         joke: JOKES[Math.floor(Math.random() * JOKES.length)]
-    })
+    });
 });
 
 app.get('/speech/:text', function(req, res) {
@@ -55,7 +55,7 @@ app.get('/speech/:text', function(req, res) {
     polly.synthesizeSpeech({
         OutputFormat: 'mp3',
         Text: text,
-        VoiceId: 'Celine'
+        VoiceId: voiceIds[Math.floor(Math.random() * voiceIds.length)]
     }, (err, data) => {
         if (err) {
             res.status(400).send(err);
