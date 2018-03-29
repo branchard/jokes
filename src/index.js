@@ -30,7 +30,7 @@ const JOKES = [
 ];
 
 const polly = new AWS.Polly({signatureVersion: 'v4', region: 'eu-west-3'});
-const voiceIds = ['Mathieu', 'Celine'];
+const voiceIds = ['Mathieu', 'Celine', 'Chantal'];
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '/views/'));
