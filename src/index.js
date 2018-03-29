@@ -1,8 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
 
-const PORT = 8082;
+const PORT = process.env.PORT;
 
 const JOKES = [
     "Ta mère est tellement grosse que lorsqu'on prend une photo de sa maison, on la voit à toutes les fenêtres !",
