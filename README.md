@@ -11,8 +11,8 @@ Run the project (localhost)
 4. Run the projet: `node src/index.js`
 5. Open [127.0.0.1:8000](http://127.0.0.1:8000/) in a browser
 
-Admin to delete/add
--------------------
+Admin to delete/add jokes
+-------------------------
 Open [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) in a browser
 
 Online project
