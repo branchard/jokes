@@ -10,3 +10,7 @@ Run the project
 3. Create `.env` file based on `.env.default` file
 4. Run the projet: `node src/index.js`
 5. Open [127.0.0.1:8000](http://127.0.0.1:8000/) in a browser
+
+Admin to delete/add
+-------------------
+Open [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) in a browser
