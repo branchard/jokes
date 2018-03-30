@@ -1,5 +1,5 @@
 # jokes
-A website about "your mom jokes" made with express, React and The Amazon Web Service (Polly and DynamoDB).
+A website about "your mom jokes" made with Express, React and The Amazon Web Service (Polly and DynamoDB).
 
 Made by Benoit BRANCHANT / Ludovic PERRIER / Farouk TBAHRITI
 
