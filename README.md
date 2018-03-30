@@ -18,4 +18,5 @@ Open [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) in a browser
 Online project
 --------------
 http://ec2-35-180-4-227.eu-west-3.compute.amazonaws.com/
+
 http://ec2-35-180-4-227.eu-west-3.compute.amazonaws.com/admin
